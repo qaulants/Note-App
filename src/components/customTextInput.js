@@ -29,6 +29,7 @@ return (
         placeholder={label}
         onChangeText={onChange}
         defaultValue={text}
+        borderRadius={8}
       />
   </View>
 ) 
