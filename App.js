@@ -8,7 +8,7 @@ const CurrentPageWidget = ({
   noteList, 
   setCurrentPage,
   addNote,
-
+  deleteNote
 }) => {
   switch (currentPage){
     case 'home' : 
@@ -16,7 +16,7 @@ const CurrentPageWidget = ({
          <Home
           noteList={noteList}
           setCurrentPage={setCurrentPage}
-          
+          deleteNote={deleteNote}
         />
       )
       case 'add':
@@ -53,7 +53,10 @@ const App = () => {
       ]);
     };
 
-    
+    const deleteNote = (id) => {
+      const deletedNote = noteList.filter(note => note.id !== id)
+      setNoteList(deletedNote)
+    }
 
     return (
       <CurrentPageWidget
@@ -61,7 +64,7 @@ const App = () => {
         setCurrentPage={setCurrentPage}
         noteList={noteList}
         addNote={addNote}
-        
+        deleteNote={ deleteNote }
       />
     )
 }
